@@ -3,6 +3,7 @@ module.exports = {
   entry: {
     javascript: './index.js',
     html: './index.html',
+    css: './styles.css',
     favicon: './favicon.ico',
   },
   module: {
@@ -13,12 +14,7 @@ module.exports = {
         loaders: ['babel-loader'],
       },
       {
-        test: /\.html$/,
-        loader: 'file?name=[name].[ext]',
-      },
-      ,
-      {
-        test: /\.ico$/,
+        test: /\.(css|html|ico)$/,
         loader: 'file?name=[name].[ext]',
       },
     ],

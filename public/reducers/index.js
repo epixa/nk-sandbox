@@ -2,12 +2,12 @@
 
 import { combineReducers } from 'redux';
 
-import mainnav from './mainnav';
+import sidebar from './sidebar';
 import timepicker from './timepicker';
 import workarea from './workarea';
 
 export default combineReducers({
-  mainnav,
+  sidebar,
   timepicker,
   workarea,
 });
