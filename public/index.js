@@ -1,14 +1,14 @@
 'use strict';
 
 import { render } from 'react-dom';
-import createProvider from './provider';
+import createCore from './core';
 
 import dashboard from './applications/dashboard';
 import discover from './applications/discover';
 import visualize from './applications/visualize';
 
 render(
-  createProvider({
+  createCore({
     applications: [
       {
         name: 'dashboard',
