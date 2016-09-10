@@ -6,13 +6,11 @@ import Application from './application';
 import Topnav from './topnav';
 import Sidebar from './sidebar';
 
-const App = () => (
+const App = ({ applications }) => (
   <div>
-    <Sidebar></Sidebar>
+    <Sidebar applications={applications}></Sidebar>
     <Topnav></Topnav>
-    <Application>
-      current application
-    </Application>
+    <Application applications={applications}></Application>
   </div>
 );
 

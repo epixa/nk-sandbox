@@ -1,11 +1,27 @@
 'use strict';
 
 import React from 'react';
+import { connect } from 'react-redux';
 
-const AppLink = ({ children }) => (
-  <a className="app_link">
+const AppLink = ({ children, clickHandler, name }) => (
+  <a className="app_link" onClick={clickHandler(name)}>
     {children}
   </a>
 );
 
-export default AppLink;
+const mapStateProps = (state) => ({
+  current: state.application.current,
+});
+
+const mapDispatchProps = (dispatch) => ({
+  clickHandler(current) {
+    return () => {
+      dispatch({
+        type: 'switchApplication',
+        current
+      });
+    };
+  }
+});
+
+export default connect(mapStateProps, mapDispatchProps)(AppLink);

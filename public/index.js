@@ -1,18 +1,31 @@
 'use strict';
 
-import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import createProvider from './provider';
 
-import reducers from './reducers';
-import App from './components';
-
-const store = createStore(reducers);
+import dashboard from './applications/dashboard';
+import discover from './applications/discover';
+import visualize from './applications/visualize';
 
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  createProvider({
+    applications: [
+      {
+        name: 'dashboard',
+        order: 2,
+        component: dashboard
+      },
+      {
+        name: 'discover',
+        order: 0,
+        component: discover
+      },
+      {
+        name: 'visualize',
+        order: 1,
+        component: visualize
+      },
+    ]
+  }),
   document.getElementById('root')
 );

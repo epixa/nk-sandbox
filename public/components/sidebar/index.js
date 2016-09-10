@@ -1,16 +1,17 @@
 'use strict';
 
 import React from 'react';
+import { sortBy, upperFirst } from 'lodash';
 
 import AppLink from './app_link.js';
 
-const Sidebar = () => (
+const Sidebar = ({ applications }) => (
   <div className="sidebar">
     <div className="logo">Demo</div>
 
-    <AppLink>Discover</AppLink>
-    <AppLink>Visualize</AppLink>
-    <AppLink>Dashboard</AppLink>
+    {sortBy(applications, 'order').map(({ name }) => (
+      <AppLink name={name} key={name}>{upperFirst(name)}</AppLink>
+    ))}
   </div>
 );
 
