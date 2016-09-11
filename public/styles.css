@@ -39,6 +39,10 @@ body {
       background-color: #4cf;
     }
 
+    .sidebar .app_link.current {
+      background-color: #4cf;
+    }
+
 .topnav {
   float: right;
   background-color: #ddd;

@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 
-const AppLink = ({ children, clickHandler, name }) => (
-  <a className="app_link" onClick={clickHandler(name)}>
+const AppLink = ({ children, clickHandler, current, name }) => (
+  <a className={classNames({ app_link: true, current: current === name })} onClick={clickHandler(name)}>
     {children}
   </a>
 );
