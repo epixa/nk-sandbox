@@ -1,14 +1,31 @@
 'use strict';
 
 import React from 'react';
+import { connect } from 'react-redux';
+import classNames from 'classnames';
 
-const Timepicker = () => (
+const Timepicker = ({ clickHandler, current }) => (
   <div className="timepicker">
-    <a>15m</a>
-    <a>1h</a>
-    <a>24h</a>
-    <a>1y</a>
+    <a onClick={clickHandler('15m')} className={classNames({ current: current === '15m' })}>15m</a>
+    <a onClick={clickHandler('1h')} className={classNames({ current: current === '1h' })}>1h</a>
+    <a onClick={clickHandler('24h')} className={classNames({ current: current === '24h' })}>24h</a>
+    <a onClick={clickHandler('1y')} className={classNames({ current: current === '1y' })}>1y</a>
   </div>
 );
 
-export default Timepicker;
+const mapStateProps = (state) => ({
+  current: state.timepicker.duration,
+});
+
+const mapDispatchProps = (dispatch) => ({
+  clickHandler(duration) {
+    return () => {
+      dispatch({
+        type: 'selectTime',
+        duration
+      });
+    };
+  }
+});
+
+export default connect(mapStateProps, mapDispatchProps)(Timepicker);

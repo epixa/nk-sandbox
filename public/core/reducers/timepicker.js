@@ -1,9 +1,19 @@
 'use strict';
 
-const DEFAULT = {};
+const DEFAULT = {
+  duration: '15m'
+};
 
 function timepickerReducer(state = DEFAULT, action) {
-  return state;
+  switch (action.type) {
+    case 'selectTime':
+      return {
+        ...state,
+        duration: action.duration,
+      };
+    default:
+      return state;
+  }
 }
 
 export default timepickerReducer;

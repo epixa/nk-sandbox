@@ -66,6 +66,10 @@ body {
       height: 35px;
     }
 
+      .topnav .timepicker a.current {
+        border: 1px solid #999;
+      }
+
 .application {
   float: right;
   height: calc(100vh - 50px);
