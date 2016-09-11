@@ -7,16 +7,18 @@ import { Provider } from 'react-redux';
 import reducers from './reducers';
 import VisualizeApp from './components';
 
-const store = createStore(reducers);
+function createProvider() {
+  const store = createStore(reducers);
 
-store.subscribe(() => {
-  console.log('visualize state', store.getState())
-})
+  store.subscribe(() => {
+    console.log('visualize state', store.getState())
+  })
 
-const Visualize = () => (
-  <Provider store={store} key="visualize">
-    <VisualizeApp />
-  </Provider>
-);
+  return (
+    <Provider store={store} key="visualize">
+      <VisualizeApp />
+    </Provider>
+  );
+}
 
-export default Visualize;
+export default createProvider;

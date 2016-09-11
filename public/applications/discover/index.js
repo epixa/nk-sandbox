@@ -7,16 +7,18 @@ import { Provider } from 'react-redux';
 import reducers from './reducers';
 import DiscoverApp from './components';
 
-const store = createStore(reducers);
+function createProvider() {
+  const store = createStore(reducers);
 
-store.subscribe(() => {
-  console.log('discover state', store.getState())
-})
+  store.subscribe(() => {
+    console.log('discover state', store.getState())
+  })
 
-const Discover = () => (
-  <Provider store={store} key="discover">
-    <DiscoverApp />
-  </Provider>
-);
+  return (
+    <Provider store={store} key="discover">
+      <DiscoverApp />
+    </Provider>
+  );
+}
 
-export default Discover;
+export default createProvider;
