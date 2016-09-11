@@ -21,6 +21,7 @@ module.exports = {
   },
   output: {
     filename: 'app.js',
+    library: '__kbn__',
     path: `${__dirname}/dist`,
   },
   resolve: {
