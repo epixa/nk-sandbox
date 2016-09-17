@@ -7,8 +7,12 @@ import { Provider } from 'react-redux';
 import reducers from './reducers';
 import DiscoverApp from './components';
 
-function createProvider() {
+import { applyListeners } from './integrations';
+
+function createProvider({ subscribe }) {
   const store = createStore(reducers);
+
+  applyListeners(store, subscribe);
 
   store.subscribe(() => {
     console.log('discover state', store.getState())

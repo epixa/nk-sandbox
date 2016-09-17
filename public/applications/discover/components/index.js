@@ -4,11 +4,15 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-const DiscoverApp = ({ doSomething }) => (
+const DiscoverApp = ({ doSomething, duration }) => (
   <div className="discover-app" onClick={doSomething}>
-    waaaaaat discover!
+    discover, local duration: {duration}
   </div>
 );
+
+const mapStateProps = (state) => ({
+  duration: state.timepicker.duration,
+});
 
 const mapDispatchProps = (dispatch) => ({
   doSomething() {
@@ -16,4 +20,4 @@ const mapDispatchProps = (dispatch) => ({
   }
 });
 
-export default connect(null, mapDispatchProps)(DiscoverApp);
+export default connect(mapStateProps, mapDispatchProps)(DiscoverApp);

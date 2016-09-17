@@ -14,10 +14,12 @@ const mapStateProps = (state) => ({
   current: state.application.current,
 });
 
-const mapDispatchProps = (dispatch, { applications }) => ({
-  renderApplication(name) {
-    return find(applications, { name }).component();
+const mapDispatchProps = (dispatch, { applications, integrations }) => {
+  return {
+    renderApplication(name) {
+      return find(applications, { name }).component(integrations);
+    }
   }
-});
+};
 
 export default connect(mapStateProps, mapDispatchProps)(Application);
