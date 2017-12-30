@@ -4,21 +4,13 @@
   <title>kibana sandbox</title>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
-  <link href="/styles.css" rel="stylesheet">
   <link href="/favicon.ico" rel="icon" type="image/x-icon">
 </head>
 <body>
   <div id="root"></div>
 
-  <script src="app.js"></script>
-
-  <script>
-    window.__kbn__.renderApp({
-      rootElement: document.getElementById('root'),
-      applications: [
-        // would be populated by server with plugin applications
-      ]
-    });
-  </script>
+  <script src="lib/loader.js"></script>
+  <script src="generated-by-server.js"></script>
+  <script src="run.js"></script>
 </body>
 </html>
