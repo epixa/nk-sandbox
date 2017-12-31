@@ -1,11 +1,21 @@
 (() => {
   class Plugin {
     start(core, dependencies) {
-      console.log('visualize start', core);
+      console.log('visualize plugin start', core);
+      const { applicationService, loader } = core;
+
+      applicationService.register('visualize', async ({ targetDomElement }) => {
+        console.log('mounting visualize app');
+        const bootstrapApp = await loader.loadBundle(`plugins/visualize/app.bundle.js`);
+        return bootstrapApp({ targetDomElement });
+      });
     }
 
     stop(core, dependencies) {
-      console.log('visualize stop');
+      console.log('visualize plugin stop', core);
+      const { applicationService } = core;
+
+      applicationService.unregister('visualize');
     }
   }
 

@@ -11,6 +11,7 @@
         : `/${path}`;
 
       if (!this.bundles[bundlePath]) {
+        console.log('loading', bundlePath);
         this.bundles[bundlePath] = new Promise((resolve, reject) => {
           const script = document.createElement('script');
           script.type = 'text/javascript'
