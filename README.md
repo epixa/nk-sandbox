@@ -95,3 +95,5 @@ apps.
 * The same loader API could be used on the server as well for dynamically
 loading plugin files. The implementation details would need to be entirely
 different, though.
+* Things like CSP nonces would be trivial to implement on this sort of setup
+as they'd be an implementation detail of the loader.
